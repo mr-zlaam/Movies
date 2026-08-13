@@ -1,7 +1,8 @@
 {
-  "name": "expo-template",
+  "name": "movies",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "description": "A pixel-perfect, high-fidelity movie ticket booking & discovery mobile application built with Expo, React Native, NativeWind, and the TMDB API.",
   "scripts": {
     "type:check": "bun run tsc --noEmit && bun run lint",
     "start": "expo start",

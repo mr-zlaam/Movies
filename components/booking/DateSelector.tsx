@@ -1,11 +1,6 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
-
-interface DateSelectorProps {
-  dates: string[];
-  selectedDate: string;
-  onSelectDate?: (date: string) => void;
-}
+import type { DateSelectorProps } from "./types";
 
 export function DateSelector({
   dates,
@@ -29,7 +24,6 @@ export function DateSelector({
               key={date}
               activeOpacity={1}
               onPress={() => {
-                // Safe no-op on date pill press per design specs
                 if (onSelectDate) {
                   onSelectDate(date);
                 }

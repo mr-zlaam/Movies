@@ -3,23 +3,9 @@ import { View, Text, Pressable, ScrollView } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { Ionicons } from "@expo/vector-icons";
 import { SeatRow } from "./SeatRow";
+import type { SeatItem, SeatGridProps } from "./types";
 
-export type SeatStatus = "available" | "selected" | "reserved" | "vip" | "executive";
-
-export interface SeatItem {
-  id: string;
-  row: number;
-  col: number;
-  section: "left" | "center" | "right";
-  status: SeatStatus;
-  price: number;
-}
-
-interface SeatGridProps {
-  seats: SeatItem[];
-  selectedSeatIds: string[];
-  onToggleSeat: (seat: SeatItem) => void;
-}
+export type { SeatItem, SeatStatus } from "./types";
 
 export function SeatGrid({
   seats,

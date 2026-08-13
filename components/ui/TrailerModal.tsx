@@ -11,13 +11,7 @@ import {
 import YoutubePlayer from "react-native-youtube-iframe";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-
-interface TrailerModalProps {
-  visible: boolean;
-  trailerKey: string | null;
-  movieTitle?: string;
-  onClose: () => void;
-}
+import type { TrailerModalProps } from "./TrailerModal/types";
 
 export function TrailerModal({
   visible,

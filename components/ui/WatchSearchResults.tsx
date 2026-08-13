@@ -4,15 +4,7 @@ import { SearchResultCard } from "@/components/ui/SearchResultCard";
 import { SearchResultCardSkeleton } from "@/components/ui/Skeleton";
 import { NoSearchResults } from "@/components/ui/NoSearchResults";
 import type { Movie } from "@/constants/mockMovies";
-
-interface WatchSearchResultsProps {
-  query: string;
-  isSearchLoading: boolean;
-  searchResults: Movie[];
-  isSubmitted: boolean;
-  onMoviePress: (movie: Movie) => void;
-  onMorePress: () => void;
-}
+import type { WatchSearchResultsProps } from "./WatchSearchResults/types";
 
 export function WatchSearchResults({
   query,

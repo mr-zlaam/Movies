@@ -1,16 +1,7 @@
 import React from "react";
 import { View, Text, Modal, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
-interface BookingSuccessModalProps {
-  visible: boolean;
-  movieTitle: string;
-  date: string;
-  hallTime: string;
-  seatCount: number;
-  totalPrice: number;
-  onClose: () => void;
-}
+import type { BookingSuccessModalProps } from "./types";
 
 export function BookingSuccessModal({
   visible,
