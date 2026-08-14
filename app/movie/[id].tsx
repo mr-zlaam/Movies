@@ -47,7 +47,7 @@ export default function MovieDetailScreen() {
 
   return (
     <ScrollView className="flex-1 bg-white" showsVerticalScrollIndicator={false}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       {/* Hero Banner Section (Figma 3: 375 x 466) */}
       <View className="relative h-[466px] w-full bg-dark">
         <Image

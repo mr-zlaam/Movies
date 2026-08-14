@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { View, FlatList, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { WatchHeader } from "@/components/ui/WatchHeader";
 import { SearchHeader } from "@/components/ui/SearchHeader";
 import { SearchResultsHeader } from "@/components/ui/SearchResultsHeader";
@@ -186,6 +187,7 @@ export default function WatchScreen() {
 
   return (
     <SafeAreaView edges={["top"]} className="flex-1 bg-white">
+      <StatusBar style="dark" />
       {renderHeader()}
       <View className="flex-1 bg-background px-5">{renderContent()}</View>
     </SafeAreaView>
