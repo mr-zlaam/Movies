@@ -5,9 +5,9 @@ import {
   Text,
   Pressable,
   ActivityIndicator,
-  SafeAreaView,
   useWindowDimensions,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
@@ -63,10 +63,14 @@ export function TrailerModal({
       statusBarTranslucent
     >
       <StatusBar style="light" hidden={isLandscape} />
-      <View className="flex-1 bg-black justify-between">
-        {/* Top Header Overlay */}
+      <View className="flex-1 bg-black justify-between" pointerEvents="box-none">
+        {/* Top Header Overlay with SafeAreaView */}
         {!isLandscape && (
-          <SafeAreaView className="z-10 bg-black/80 px-4 py-3 flex-row items-center justify-between">
+          <SafeAreaView
+            edges={["top"]}
+            className="z-20 bg-black/90 px-5 py-3 flex-row items-center justify-between border-b border-white/10"
+            pointerEvents="box-none"
+          >
             <Text
               numberOfLines={1}
               className="flex-1 font-poppins-semibold text-base text-white mr-4"
@@ -74,10 +78,11 @@ export function TrailerModal({
               {movieTitle}
             </Text>
             <Pressable
+              pointerEvents="auto"
               accessibilityRole="button"
               accessibilityLabel="Done watching trailer"
               onPress={onClose}
-              className="rounded-full bg-primary px-5 py-2 active:opacity-80"
+              className="rounded-full bg-primary px-5 py-2 active:opacity-80 shadow-md"
             >
               <Text className="font-poppins-semibold text-sm text-white">
                 Done
@@ -89,7 +94,7 @@ export function TrailerModal({
         {/* Video Player Container */}
         <View className="flex-1 justify-center items-center relative bg-black">
           {!isReady && (
-            <View className="absolute z-20 items-center justify-center">
+            <View className="absolute z-30 items-center justify-center">
               <ActivityIndicator size="large" color="#61C3F2" />
               <Text className="mt-3 font-poppins text-xs text-white/70">
                 Loading Trailer...
@@ -110,13 +115,18 @@ export function TrailerModal({
               modestbranding: 1,
               rel: 0,
               playsinline: 0,
+              showInfo: 0,
             }}
           />
         </View>
 
-        {/* Bottom Hint Footer */}
+        {/* Bottom Hint Footer with SafeAreaView */}
         {!isLandscape && (
-          <SafeAreaView className="bg-black/80 px-4 py-3 items-center">
+          <SafeAreaView
+            edges={["bottom"]}
+            className="z-20 bg-black/90 px-4 py-3 items-center border-t border-white/10"
+            pointerEvents="box-none"
+          >
             <View className="flex-row items-center">
               <Ionicons name="information-circle-outline" size={16} color="#827D88" />
               <Text className="ml-1.5 font-poppins text-xs text-muted">
