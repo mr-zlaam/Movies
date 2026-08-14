@@ -37,9 +37,8 @@ The app implements a multi-layer caching strategy for smooth, offline-friendly U
 
 ## Architectural & Engineering Decisions
 
-### 1. Strict 200 Lines of Code (LOC) Per-File Cap
+### 1. Diversified code across the components
 
-- **Rationale**: To enforce strict modularity and maintainability, no code file in `app/`, `components/`, `hooks/`, or `lib/` exceeds **200 lines of code**.
 - **Implementation**: Complex views are decomposed into focused, single-responsibility sub-components (e.g. `SeatGrid.tsx` + `SeatRow.tsx` + `SeatIcon.tsx`, `WatchScreen.tsx` + `WatchSearchResults.tsx`).
 
 ### 2. Touch Interaction Refactor (`TouchableOpacity`)
@@ -123,3 +122,9 @@ bun run type:check
 ```
 
 ---
+
+## Submission Deliverables
+
+- GitHub Repository: https://github.com/mr-zlaam/Movies
+- APK Download: https://github.com/mr-zlaam/Movies/releases/download/mobile-apk/movies.apk
+- Demo Video: https://github.com/mr-zlaam/Movies/releases/download/demo-video/demo-video.mp4
