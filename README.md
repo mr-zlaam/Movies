@@ -1,10 +1,10 @@
-# Movies — Cinema Ticket Booking & Discovery App 🎬
+# Movies Cinema Ticket Booking & Discovery App
 
 A pixel-perfect, high-fidelity cinema movie discovery and ticket booking mobile application built with **Expo**, **React Native**, **NativeWind (TailwindCSS)**, and the **TMDB (The Movie Database) API**.
 
 ---
 
-## 📱 Features
+## Features
 
 - **Upcoming & Top Movies**: Real-time integration with TMDB API for fetching upcoming releases and top-rated movies.
 - **Genre Search & Filtering**: Live search bar with instant query feedback and category grid breakdown.
@@ -16,7 +16,7 @@ A pixel-perfect, high-fidelity cinema movie discovery and ticket booking mobile 
 
 ---
 
-## 🚀 Caching Strategy
+## Caching Strategy
 
 The app implements a multi-layer caching strategy for smooth, offline-friendly UI performance and minimal TMDB API usage:
 
@@ -35,25 +35,30 @@ The app implements a multi-layer caching strategy for smooth, offline-friendly U
 
 ---
 
-## 🏗️ Architectural & Engineering Decisions
+## Architectural & Engineering Decisions
 
 ### 1. Strict 200 Lines of Code (LOC) Per-File Cap
+
 - **Rationale**: To enforce strict modularity and maintainability, no code file in `app/`, `components/`, `hooks/`, or `lib/` exceeds **200 lines of code**.
 - **Implementation**: Complex views are decomposed into focused, single-responsibility sub-components (e.g. `SeatGrid.tsx` + `SeatRow.tsx` + `SeatIcon.tsx`, `WatchScreen.tsx` + `WatchSearchResults.tsx`).
 
 ### 2. Touch Interaction Refactor (`TouchableOpacity`)
+
 - **Rationale**: Solved runtime crash issues (`active:` pseudo-class listener collisions) caused by NativeWind active state handlers nested inside `ScrollView` and gesture containers.
 - **Implementation**: Standardized press handling across `DateSelector`, `HallCard`, `SeatRow`, and tab bar items using React Native `TouchableOpacity` and `Pressable` style functions.
 
 ### 3. Route Layouts & Navigation Context
+
 - **Rationale**: Prevented Expo Router context lookup errors (`Couldn't find a navigation context`).
 - **Implementation**: Created dedicated nested route layouts (`app/booking/_layout.tsx` and `app/movie/_layout.tsx`) wrapping route groups with standard `<Stack screenOptions={{ headerShown: false }} />` providers.
 
 ### 4. `VirtualizedList` Performance Optimization
+
 - **Rationale**: Eliminated list lag and React Native `VirtualizedList: You have a large list that is slow to update` warnings when rendering long movie feeds.
 - **Implementation**: Configured `FlatList` with `initialNumToRender={5}`, `maxToRenderPerBatch={5}`, `windowSize={5}`, `removeClippedSubviews={true}`, and memoized item renderers using `useCallback`.
 
 ### 5. Figma Pixel Parity
+
 - **Movie Cards**: `w-full` / dynamic flex width, `h-[180px]`, `rounded-[10px]`.
 - **Category Cards**: `163px` width equivalent in 2-column flex grid, `h-[100px]`, `rounded-[10px]`.
 - **CTA Buttons**: `w-[243px]`, `h-[50px]`, `rounded-[10px]`.
@@ -61,7 +66,7 @@ The app implements a multi-layer caching strategy for smooth, offline-friendly U
 
 ---
 
-## 🛠️ Tech Stack & Dependencies
+## Tech Stack & Dependencies
 
 - **Framework**: [Expo SDK 54](https://expo.dev) / [React Native 0.81](https://reactnative.dev)
 - **Routing**: [Expo Router v6](https://docs.expo.dev/router/introduction/) (File-based routing)
@@ -72,14 +77,16 @@ The app implements a multi-layer caching strategy for smooth, offline-friendly U
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
+
 - Node.js (v18+)
 - Bun (`npm install -g bun`)
 - Expo Go app on iOS/Android device or Xcode/Android Studio simulator.
 
 ### 2. Environment Configuration
+
 Copy `.env.example` to `.env` and insert your TMDB API credentials:
 
 ```bash
@@ -87,17 +94,20 @@ cp .env.example .env
 ```
 
 `.env` content:
+
 ```env
 EXPO_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
 EXPO_PUBLIC_TMDB_READ_TOKEN=your_tmdb_read_access_token_here
 ```
 
 ### 3. Installation
+
 ```bash
 bun install
 ```
 
 ### 4. Running the Project
+
 ```bash
 # Start development server
 bun start
@@ -113,6 +123,3 @@ bun run type:check
 ```
 
 ---
-
-## 📜 License
-Private repository — All rights reserved.
